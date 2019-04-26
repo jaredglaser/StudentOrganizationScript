@@ -1,0 +1,15 @@
+#!/bin/bash
+
+for file in *.java; do
+    orig=${file%ILN*} #get filename
+    dir=$(echo $orig| cut -d'_' -f 1) #generate directory name from LastNameFirstName
+    file=${orig##*_} #fileName with underscore portions removed
+    posHyphen=$(echo $file| grep -b -o - | awk 'BEGIN {FS=":"}{print $1}') #find position of a -
+    size=${#file}
+    case $posHyphen in
+        (*[![:blank:]]*) file=${file:0:posHyphen}${file:posHyphen+2:size} #if there was a - remove it and the next number
+    esac
+    #echo $file    
+    mkdir --parents "$HOME/Lab5 Submissions/$dir/" #CHANGEME depending on directory to send to
+    mv "$orig" "$HOME/Lab5 Submissions/$dir/$file" #CHANGEME depending on directory to send to
+done
