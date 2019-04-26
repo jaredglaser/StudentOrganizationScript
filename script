@@ -10,6 +10,6 @@ for file in *.java; do
         (*[![:blank:]]*) file=${file:0:posHyphen}${file:posHyphen+2:size} #if there was a - remove it and the next number
     esac
     #echo $file    
-    mkdir --parents "$HOME/Lab5 Submissions/$dir/" #CHANGEME depending on directory to send to
-    mv "$orig" "$HOME/Lab5 Submissions/$dir/$file" #CHANGEME depending on directory to send to
+    mkdir --parents "$HOME/Lab6 Submissions/$dir/" #CHANGEME depending on directory to send to
+    mv "$orig" "$HOME/Lab6 Submissions/$dir/$file" #CHANGEME depending on directory to send to
 done
